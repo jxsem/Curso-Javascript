@@ -50,7 +50,7 @@ mi_array = []
 mi_array.length = 0
 console.log(mi_array)
 
-// slice
+// splice
 let nuevoArray = ["Nuevo", "Array", 24, "Granada"]
 nuevoArray.splice(0, 2) // Imprime caracteres desde el indice X hasta el Y
 console.log(nuevoArray)
