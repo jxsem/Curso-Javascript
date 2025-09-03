@@ -1,0 +1,12 @@
+# Ignorar archivos del sistema
+.DS_Store
+
+# Ignorar dependencias de Node.js
+node_modules/
+
+# Ignorar archivos compilados
+dist/
+build/
+
+# Ignorar configuraciones locales
+.env
