@@ -31,8 +31,20 @@ if (mapa.has(5)) {
 mapa.set("Verano", ["Junio", "Julio", "Agosto"]);
 console.log(mapa);
 // 10. Crea un Array, transfórmalo a un Set y almacénalo en un Map.
+
+// Creo un array con números, algunos repetidos
 let numerosArray = [1, 2, 2, 3, 4, 4, 5];
+
+// Transformo el array en un Set para eliminar duplicados
 let numerosSet = new Set(numerosArray);
+
+// Creo un Map para almacenar diferentes conjuntos o datos
 let mapFinal = new Map();
+
+// Almaceno el Set dentro del Map
+// La clave es "NumerosUnicos" para poder identificarlo fácilmente
+// El valor es el Set con los números únicos
 mapFinal.set("NumerosUnicos", numerosSet);
+
+// Imprimo el Map completo
 console.log(mapFinal);
