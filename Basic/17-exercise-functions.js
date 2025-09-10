@@ -57,13 +57,77 @@ console.log(mayusculas(arrayString))
 
 
 // 5. Crea una función que reciba un número y devuelva true si es primo, y false en caso contrario.
-
+function esPrimo(numero){
+    if (numero <= 1) {
+        return false; // los primos empiezan en 2
+    }
+    for (let i = 2; i < numero; i++){
+        if (numero % i === 0){
+            return false
+        }else{
+            return true
+        }
+    }    
+}
+console.log(esPrimo(7))
 // 6. Crea una función que reciba dos arrays y devuelva un nuevo array que contenga los elementos comunes entre ambos.
+function similitudArray(listaUno, listaDos) {
+    // filter recorre cada elemento de listaUno
+    return listaUno.filter(elemento => 
+        // includes revisa si ese elemento está dentro de listaDos
+        listaDos.includes(elemento)
+    );
+}
 
-// 7. Crea una función que reciba un array de números y devuelva la suma de todos los números pares.
+let array1 = ["Azul", "Verde", "Naranja", "Rosa"];
+let array2 = ["Azul", "Violeta", "Amarillo", "Marron"];
 
-// 8. Crea una función que reciba un array de números y devuelva un nuevo array con cada número elevado al cuadrado.
+// Paso a paso de filter + includes:
+// 1. Toma "Azul" → ¿array2 incluye "Azul"? → true → lo guarda
+// 2. Toma "Verde" → ¿array2 incluye "Verde"? → false → lo descarta
+// 3. Toma "Naranja" → ¿array2 incluye "Naranja"? → false → lo descarta
+// 4. Toma "Rosa" → ¿array2 incluye "Rosa"? → false → lo descarta
 
-// 9. Crea una función que reciba una cadena de texto y devuelva la misma cadena con las palabras en orden inverso.
+console.log(similitudArray(array1, array2)); // ["Azul"]
 
-// 10. Crea una función que calcule el factorial de un número dado.
+// 7. Sumar todos los números pares de un array
+function sumaPares(numeros) {
+    return numeros
+        .filter(num => num % 2 === 0) // me quedo solo con los pares
+        .reduce((acum, num) => acum + num, 0); // los sumo
+}
+
+console.log(sumaPares([1, 2, 3, 4, 5, 6])); // 12
+
+
+
+// 8. Elevar al cuadrado cada número de un array
+function cuadrados(numeros) {
+    return numeros.map(num => num ** 2);
+}
+
+console.log(cuadrados([1, 2, 3, 4])); // [1, 4, 9, 16]
+
+
+
+// 9. Invertir el orden de las palabras de una cadena
+function invertirPalabras(texto) {
+    return texto.split(" ").reverse().join(" ");
+}
+
+console.log(invertirPalabras("Hola mundo desde JavaScript"));
+// "JavaScript desde mundo Hola"
+
+// 10. Calcular el factorial de un número
+function factorial(n) {
+    if (n < 0) return "No existe factorial de negativos";
+    if (n === 0) return 1;
+    let resultado = 1;
+    for (let i = 1; i <= n; i++) {
+        resultado *= i;
+    }
+    return resultado;
+}
+
+console.log(factorial(5)); // 120
+
