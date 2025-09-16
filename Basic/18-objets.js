@@ -28,7 +28,7 @@ console.log(persona)
 
 // Nueva propiedad
 
-persona.emai = "soldadojimenezj@gmail.com"
+persona.email = "soldadojimenezj@gmail.com"
 console.log(persona)
 persona.edad = 24
 console.log(persona)
