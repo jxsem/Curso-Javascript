@@ -90,11 +90,15 @@ class GetSetPersona {
     get nombre(){
         return this.#nombre
     }
-    get bank (){
+    get bank (){ // Sirve para leer una propiedad privada
         return this.#bank
     }
-    set bank(newBank) {
-        this.#bank = newBank
+    set bank(newBank) { // Sirve para modificar una propiedad privada pero con control
+        if(newBank.startsWith("IBAN")) {
+            this.#bank = newBank;
+        } else {
+            console.log("Cuenta invalida")
+        }
     }
 }
 
