@@ -94,7 +94,7 @@ class GetSetPersona {
         return this.#bank
     }
     set bank(newBank) { // Sirve para modificar una propiedad privada pero con control
-        if(newBank.startsWith("IBAN")) {
+        if(newBank.startsWith("IBANES")) {
             this.#bank = newBank;
         } else {
             console.log("Cuenta invalida")
@@ -104,5 +104,5 @@ class GetSetPersona {
 
 persona8 = new GetSetPersona("Segismundo", 50, "Segis")
 console.log(persona8.nombre)
-persona8.bank = "IBAN348957239804570982375"
+persona8.bank = "IBANES348957239804570982375"
 console.log(persona8.bank)
