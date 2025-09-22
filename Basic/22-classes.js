@@ -1,4 +1,6 @@
-// clases -> son una forma de crear objetos y trabajar con ellos de manera más organizada
+// ==========================
+// CLASES BÁSICAS
+// ==========================
 
 class Persona {
     constructor(nombre, edad, alias){
@@ -8,15 +10,15 @@ class Persona {
     }
 }
 
-// Sintaxis
-
+// Crear instancia
 let persona = new Persona("Jose", 24, "Soldado")
 console.log(persona)
+console.log(typeof persona) // "object"
 
-console.log(typeof persona) // objeto
+// ==========================
+// VALORES POR DEFECTO
+// ==========================
 
-
-// Valores por defecto
 class DefectoPersona {
     constructor(nombre = "Por defecto", edad = 0, alias = "Sin alias"){
         this.nombre = nombre
@@ -28,17 +30,16 @@ class DefectoPersona {
 let persona2 = new DefectoPersona("Jose Manuel")
 console.log(persona2)
 
-// Acceso a propiedades
-
+// Acceso y modificación de propiedades
 console.log(persona2.alias)
 console.log(persona2["alias"])
 
-// Modificación de propiedades
-persona2.alias = "Jose Manuel Soldado" 
+persona2.alias = "Jose Manuel Soldado"
 console.log(persona2.alias)
 
-
-// Funciones en clases
+// ==========================
+// MÉTODOS EN CLASES
+// ==========================
 
 class OtraPersona {
     constructor(nombre, edad, profesion){
@@ -54,10 +55,12 @@ class OtraPersona {
 let personaNueva = new OtraPersona("Pedro", 31, "Analista de datos")
 personaNueva.walk()
 
-// Acceso privado a las clases
-class PersonaPrivada{
+// ==========================
+// PROPIEDADES PRIVADAS
+// ==========================
 
-    #bank // Sintaxis de la propiedad privada
+class PersonaPrivada {
+    #bank
 
     constructor(nombre, edad, profesion, bank){
         this.nombre = nombre
@@ -65,15 +68,15 @@ class PersonaPrivada{
         this.profesion = profesion
         this.#bank = bank
     }
-
 }
 
-let persona5 = new PersonaPrivada ("Mario", 45, "Contable")
+let persona5 = new PersonaPrivada("Mario", 45, "Contable")
+// console.log(persona5.bank) // ❌ No se puede acceder, es privada
 
-console.log(persona5.bank) // No se puede acceder a la propiedad bank
+// ==========================
+// GETTERS Y SETTERS
+// ==========================
 
-// Getter: permite acceder a un valor privado de forma controlada.
-// Setter: permite modificar un valor privado validando o encapsulando la lógica.
 class GetSetPersona {
     #nombre
     #age
@@ -90,19 +93,58 @@ class GetSetPersona {
     get nombre(){
         return this.#nombre
     }
-    get bank (){ // Sirve para leer una propiedad privada
+
+    get bank(){
         return this.#bank
     }
-    set bank(newBank) { // Sirve para modificar una propiedad privada pero con control
+
+    set bank(newBank){
         if(newBank.startsWith("IBANES")) {
-            this.#bank = newBank;
+            this.#bank = newBank
         } else {
             console.log("Cuenta invalida")
         }
     }
 }
 
-persona8 = new GetSetPersona("Segismundo", 50, "Segis")
+let persona8 = new GetSetPersona("Segismundo", 50, "Segis")
 console.log(persona8.nombre)
 persona8.bank = "IBANES348957239804570982375"
 console.log(persona8.bank)
+
+// ==========================
+// HERENCIA Y SOBRESCRITURA
+// ==========================
+
+class Animal { // Clase padre
+    constructor(name){
+        this.name = name
+    }
+    sound(){
+        console.log("Sonido genérico")
+    }
+}
+
+class Dog extends Animal { // Clase hija
+    constructor(name, breed){
+        super(name)
+        this.breed = breed
+    }
+
+    run(){
+        console.log(`${this.name} corre rápido`)
+    }
+
+    sound(){ // Sobrescritura del método
+        console.log("Guau guau! 🐶")
+    }
+}
+
+let miPerro = new Dog("Oddie", "Beagle")
+miPerro.run()   // "Oddie corre rápido"
+miPerro.sound() // "Guau guau! 🐶"
+
+
+
+
+
