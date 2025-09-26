@@ -44,7 +44,7 @@ class Server extends Ordenador{
     }
     set serialNumber(serialNumber){ // Modificacion de la propiedad privada con control
         if(isNaN(serialNumber) || serialNumber.toString().length != 10){ 
-            console.log("El serialNumber debe ser un número y debe contener");
+            console.log("El serialNumber debe ser una serie de número.");
         }else{
             this.#serialNumber = serialNumber 
         }
